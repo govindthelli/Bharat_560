@@ -1,7 +1,7 @@
 pipeline{
   agent any
   stages{
-    stage("git clone"{
+    stage("git clone"){
       steps{
         git branch: 'main', url: 'https://github.com/govindthelli/Bharat_560.git'
       }
