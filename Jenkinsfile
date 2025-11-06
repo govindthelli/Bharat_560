@@ -8,7 +8,7 @@ pipeline{
     }
     stage("buid image"){
       steps{
-        sh 'dokcer rm -f $(docker ps -aq) || true'
+        sh 'docker rm -f $(docker ps -aq) || true'
         sh 'docker rmi -f $(docker images -aq) || true '
         sh 'docker build -t nginx1 .'
       }
