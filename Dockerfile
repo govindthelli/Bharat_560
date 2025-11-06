@@ -1,14 +1,7 @@
-# Use official Nginx image
 FROM nginx:latest
-
-# Remove default nginx website
-RUN rm -rf /usr/share/nginx/html/*
-
-# Copy all project files (HTML, CSS, JS, images)
-COPY . /usr/share/nginx/html/
-
-# Expose port 80
+WORKDIR /app
+run rm -rf usr/share/nginx/html/*
+COPY . .
+copy index.html /usr/share/nginx/html/index.html
 EXPOSE 80
-
-# Start Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"] 
