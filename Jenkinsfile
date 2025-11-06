@@ -8,14 +8,14 @@ pipeline{
     }
     stage("buid image"){
       steps{
-        sh 'docker rm -f $(docker ps -aq) || true'
-        sh 'docker rmi -f $(docker images -aq) || true'
-        sh 'docker build -t nginx1 .'
+        sh 'sudo docker rm -f $(docker ps -aq) || true'
+        sh 'sudo docker rmi -f $(docker images -aq) || true'
+        sh 'sudo docker build -t nginx1 .'
       }
     }
     stage("deployment"){
       steps{
-        sh 'docker run --name demo -dp 80:80 nginx1'
+        sh 'sudo docker run --name demo -dp 80:80 nginx1'
       }
     }
   }
